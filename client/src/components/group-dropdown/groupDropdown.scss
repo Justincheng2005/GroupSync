@@ -1,0 +1,31 @@
+.groupDropdown-container {
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    transform: translate(264,0);
+    z-index: 2;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+
+    .element{
+        padding: 10px 20px;
+        display:flex;
+        font-size: 15px;
+        border: 0.5px solid grey
+        
+    }
+    .element-curr{
+      padding: 10px 20px;
+      display:flex;
+      font-size: 15px;
+      border: 0.5px solid rgb(58, 58, 58);
+      background-color: rgb(221, 220, 220);
+    }
+    img{
+      object-fit: cover;
+    }
+
+
+  }
+  
+  
