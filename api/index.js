@@ -10,6 +10,7 @@ import groupRoutes from "./routes/groups.js";
 import cors from "cors";
 import multer from "multer";
 import cookieParser from "cookie-parser";
+import wishlistRoutes from "./routes/wishlist.js";
 
 //middlewares
 app.use((req, res, next) => {
@@ -47,6 +48,7 @@ app.use("/api/comments", commentRoutes);
 app.use("/api/likes", likeRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/groups", groupRoutes);
+app.use("/api/wishlist", wishlistRoutes);
 
 app.listen(8800, () => {
   console.log("API working!");

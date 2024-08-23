@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className="group-dropdown-container">
           <button className = "group-dropdown-button" onClick={()=> setIsVisible(!isVisible)}>
             <img src={GroupIcon} alt=""/>
-            {/* <img src={currentGroup.profilePic} alt=""/> */}
+            {/* <img src={currentGroup.profilePic} alt=""/> add handling if there is no currentGroup*/}
             <div>{currentGroup.groupName}</div>
           </button>
           <GroupDropdown isVisible={isVisible}/>
@@ -52,13 +52,15 @@ const Navbar = () => {
         <PersonOutlinedIcon />
         <EmailOutlinedIcon />
         <NotificationsOutlinedIcon />
-        <div className="user">
-          <img
-            src={"/upload/" + currentUser.profilePic}
-            alt=""
-          />
-          <span>{currentUser.name}</span>
-        </div>
+        <button className="user">
+          <Link to= { "/profile/:"+currentUser.id }>
+            <img
+              src={"/upload/" + currentUser.profilePic}
+              alt=""
+            />
+            <span>{currentUser.name}</span>
+          </Link>
+        </button>
       </div>
     </div>
   );

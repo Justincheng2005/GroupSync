@@ -24,7 +24,7 @@ export const getGroup = (req, res) => {
     if (!token) return res.status(401).json("Not logged in!");
     jwt.verify(token, "secretkey", (err, userInfo) => {
         if(err) return res.status(403).json("Token is not valid!");
-        console.log(req.params.id+"testParams");
+        //console.log(req.params.id+"testParams");
 
         const q = "SELECT * FROM `groups` WHERE groupId = ?";
         db.query(q, req.params.id, (err, data) => {
@@ -45,20 +45,20 @@ export const joinGroup = (req, res) => {
         db.query(memberQ, [userInfo.id, req.body.inviteCode], (err, data) => {
             if (err) return res.status(500).json(err);
             if (data.length) return res.status(409).json("User already in group!");
-
                 
             //add invite link in the future
 
             //add user to group
             const q =
-            "INSERT INTO `userGroups` (`userId`, `groupId`) SELECT ?, `groupId` FROM `groups` WHERE inviteCode = ?";
+            "INSERT INTO `userGroups` (`userId`, `groupId`) SELECT ?, groupId FROM `groups` WHERE inviteCode = ?";
 
 
             db.query(q, [userInfo.id, req.body.inviteCode], (err, data) => {
                 if (err) return res.status(500).json(err);
+                if(data.affectedRows == 0) return res.status(409).json("Group does not exist");
                 return res.status(200).json("User added to group.");
-                });
             });
+        });
   });
 };
 

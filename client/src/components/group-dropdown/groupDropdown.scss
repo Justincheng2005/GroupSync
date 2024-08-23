@@ -1,31 +1,104 @@
+@import "../../style.scss";
+
+
+
 .groupDropdown-container {
+  @include themify($themes) {
     position: absolute;
     display:flex;
     flex-direction: column;
-    transform: translate(264,0);
     z-index: 2;
-    border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
-
+    
     .element{
-        padding: 10px 20px;
-        display:flex;
-        font-size: 15px;
-        border: 0.5px solid grey
-        
+      padding: 10px 20px;
+      display:flex;
+      font-size: 15px;
+      border: 0.5px solid grey;
+      color: themed(textColor);
+      background-color: themed("bg");
     }
     .element-curr{
       padding: 10px 20px;
       display:flex;
       font-size: 15px;
-      border: 0.5px solid rgb(58, 58, 58);
-      background-color: rgb(221, 220, 220);
+      background-color:themed(bgSoft);
+      color: themed(textColorSoft);
+       border: 0.5px solid rgb(58, 58, 58);
     }
     img{
       object-fit: cover;
     }
-
-
   }
-  
-  
+}
+.create-popUp{
+  @include themify($themes){
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transform: translate(199.445px,0);
+    background-color: themed("bgTransparent");
+    text-align: center;
+    border-radius:15px;
+    overflow:hidden;
+    h2{
+      margin-bottom: 10%;
+    }
+    form{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    //img styling
+    img{
+      scale: 100%;
+      padding-bottom: 5%;
+    }
+    h6{
+      font-size: 15px;
+      font-weight:normal
+    }
+    .groupName-input{
+      margin-top: 5%;
+      width: 80%;
+    }
+    .popup-submit{
+      margin-top: 5%;
+      width:30%;
+      margin-left:50%;
+      margin-bottom: 5%;
+    }
+  }
+}
+
+.join-popUp{
+  @include themify($themes){
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transform: translate(132%,0);
+    background-color: themed("bgTransparent");
+    text-align: center;
+    border-radius:15px;
+    overflow: hidden;
+    width:fit-content;
+    h2{
+      margin-bottom:10%;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+    }
+    .inviteCode-input{
+      width: 80%;
+      margin-left: 10%;
+      margin-right:10%;
+    }
+    .popup-submit{
+      margin-top: 5%;
+      width:30%;
+      margin-left:60%;
+      margin-bottom: 5%;
+    }
+  }
+}

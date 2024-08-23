@@ -28,7 +28,9 @@
       
       .group-dropdown-button{
         border: none;
-        background-color:themed(bg)
+        background-color:themed(bg);
+        padding-top:4px;
+        color: themed(textColor);
       }
 
       .search {
@@ -104,9 +106,6 @@
           height: 30px;
           border-radius: 50%;
           object-fit: cover;
-        }
-
-        span {
         }
       }
     }

@@ -64,7 +64,6 @@ const Profile = () => {
       ) : (
         <>
           <div className="images">
-            <img src={"/upload/"+data.coverPic} alt="" className="cover" />
             <img src={"/upload/"+data.profilePic} alt="" className="profilePic" />
           </div>
           <div className="profileContainer">
