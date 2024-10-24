@@ -19,7 +19,6 @@ const GroupDropdown = ({isVisible, stateChange}) => {
   const [ groupName, setGroupName ] = useState("");
   const [ inviteCode, setInviteCode ] = useState("");
 
-  const [groupCreated, setGroupCreated] = useState(false);
   const [err, setErr] = useState(null);
 
   //handle functions
@@ -85,7 +84,7 @@ const GroupDropdown = ({isVisible, stateChange}) => {
             : <div className="container">
                 <div className="groupDropdown-container"> 
                   {data.map((group) => group.groupId === currentGroup.groupId ?  
-                  <button className = "element-curr" onClick={() => handleSwitch({id:group.groupId})}>
+                  <button className = "element-curr" key={group.groupId} onClick={() => handleSwitch({id:group.groupId})}>
                         <img src={group.groupPic} alt = ""/>
                         <div>{group.groupName}</div>
                     </button>

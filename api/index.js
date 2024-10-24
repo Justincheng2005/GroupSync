@@ -10,8 +10,8 @@ import groupRoutes from "./routes/groups.js";
 import cors from "cors";
 import multer from "multer";
 import cookieParser from "cookie-parser";
-import wishlistRoutes from "./routes/wishlist.js";
-
+import listRoutes from "./routes/list.js";
+import searchRoutes from "./routes/search.js";
 //middlewares
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
@@ -41,6 +41,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json(file.filename);
 });
 
+
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
@@ -48,7 +50,11 @@ app.use("/api/comments", commentRoutes);
 app.use("/api/likes", likeRoutes);
 app.use("/api/relationships", relationshipRoutes);
 app.use("/api/groups", groupRoutes);
-app.use("/api/wishlist", wishlistRoutes);
+app.use("/api/list", listRoutes);
+app.use("/api/search", searchRoutes);
+
+
+
 
 app.listen(8800, () => {
   console.log("API working!");
